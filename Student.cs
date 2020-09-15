@@ -11,21 +11,33 @@ namespace Test
     }
     public class Student
     {
-        public string firstName; //Имя
-        public string lastName; //Фамилия
-        public byte age; //Возраст
+        public readonly string firstName; //Имя
+        public readonly string lastName; //Фамилия
+        public readonly DateTime birthDay;
+        public byte Age { get; private set; } //Возраст
         public Contacts contacts;
-        public int[] balls = new int[5];
-        public double average;
-        public double Average()
+        public List<byte> balls;
+        public double Average { get; private set; }
+
+        //public Student() { }
+        public Student(string firstName, string lastName, DateTime birthDay)
+        {
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.birthDay = birthDay;
+            balls = new List<byte>();
+        }
+
+        public double AverageCalc ()
         {
             int sum = 0;
             for (int i=0; i < 5; i++)
             {
                 sum += balls[i];
             }
-            average = sum / 5;
-            return average;
+            Average = sum / 5;
+            return Average;
         }
+        public byte AgeCalc() { return 20; }
     }
 }
