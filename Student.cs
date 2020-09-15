@@ -17,5 +17,15 @@ namespace Test
         public Contacts contacts;
         public int[] balls = new int[5];
         public double average;
+        public double Average()
+        {
+            int sum = 0;
+            for (int i=0; i < 5; i++)
+            {
+                sum += balls[i];
+            }
+            average = sum / 5;
+            return average;
+        }
     }
 }
